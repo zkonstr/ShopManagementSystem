@@ -108,6 +108,7 @@
             this.AddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AddedProducts.Location = new System.Drawing.Point(10, 34);
             this.AddedProducts.Name = "AddedProducts";
+            this.AddedProducts.RowHeadersWidth = 51;
             this.AddedProducts.RowTemplate.Height = 24;
             this.AddedProducts.Size = new System.Drawing.Size(650, 332);
             this.AddedProducts.TabIndex = 1;
@@ -452,10 +453,14 @@
             // 
             // date
             // 
+            this.date.Checked = false;
+            this.date.CustomFormat = "dd/MM/yyyy";
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date.Location = new System.Drawing.Point(1232, 22);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(200, 26);
             this.date.TabIndex = 10;
+            this.date.Value = new System.DateTime(2021, 12, 9, 0, 0, 0, 0);
             // 
             // label7
             // 

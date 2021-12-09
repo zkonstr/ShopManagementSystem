@@ -105,6 +105,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(230, 220);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1143, 382);
             this.dataGridView1.TabIndex = 30;
@@ -121,6 +122,8 @@
             // 
             // Todate
             // 
+            this.Todate.CustomFormat = "dd/MM/yyyy";
+            this.Todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Todate.Location = new System.Drawing.Point(807, 122);
             this.Todate.Name = "Todate";
             this.Todate.Size = new System.Drawing.Size(200, 22);
@@ -128,6 +131,8 @@
             // 
             // FromDate
             // 
+            this.FromDate.CustomFormat = "dd/MM/yyyy";
+            this.FromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FromDate.Location = new System.Drawing.Point(307, 119);
             this.FromDate.Name = "FromDate";
             this.FromDate.Size = new System.Drawing.Size(200, 22);

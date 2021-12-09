@@ -34,12 +34,11 @@ namespace ShopManagementSystem
             {
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
-                var select = "SELECT * FROM ORDER_VIEW WHERE DATE BETWEEN @start AND @end ;";
-
+                var select = "SELECT * FROM ORDER_VIEW WHERE DATE BETWEEN @start AND @end ;";           
                 var dataAdapter = new SqlDataAdapter(select, con);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@start", FromDate.Text);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@end", Todate.Text);
-                //MessageBox.Show(dateTimePicker1.Value.Date.ToString("yyyyMMdd"));
+                //MessageBox.Show(dateTimePicker1.Value.Date.ToString("mm/dd/yyyy"));
                 var commandBuilder = new SqlCommandBuilder(dataAdapter);
                 var ds = new DataSet();
                 dataAdapter.Fill(ds);
@@ -67,7 +66,7 @@ namespace ShopManagementSystem
 
             DGVPrinterHelper.DGVPrinter printer = new DGVPrinter();
             printer.Title = "Order Report";//Header
-            printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("MM/dd/yyyy"));
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dd/mm/yyyy"));
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.PageNumbers = true;
             printer.PageNumberInHeader = false;

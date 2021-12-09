@@ -136,7 +136,7 @@ namespace ShopManagementSystem
                 //If count is equal to 1, than show frmMain form
                 if (count != 1)
                 {
-                    MessageBox.Show("Check stock!!!!", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Check stock!", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -194,12 +194,11 @@ namespace ShopManagementSystem
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
                 SqlCommand cmd = new SqlCommand("Insert into MYORDER (ORD_ID,CID,DATE,AMOUNT) values(@oid,@cid,@date,@amount);", con);
-                
-                cmd.Parameters.AddWithValue("@oid", OrderID.Text);
-                //cmd.Parameters.AddWithValue("@pid", textBox8.Text);
-                cmd.Parameters.AddWithValue("@cid", cid);
-                cmd.Parameters.AddWithValue("@date", date.Text);
-                cmd.Parameters.AddWithValue("@amount", Total_Amt.Text);
+                cmd.Parameters.AddWithValue("@oid", int.Parse(OrderID.Text));
+                //cmd.Parameters.AddWithValue("@pid", textBox8.Text); 
+                cmd.Parameters.AddWithValue("@cid", int.Parse(cid));
+                cmd.Parameters.AddWithValue("@date", date.Value.ToString());//TODO: CONVERT mm/dd/yyyy
+                cmd.Parameters.AddWithValue("@amount",decimal.Parse(Total_Amt.Text));
 
                 int i = cmd.ExecuteNonQuery();
                 //If count is equal to 1, than show frmMain form
