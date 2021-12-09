@@ -12,7 +12,7 @@ namespace ShopManagementSystem
     {
         SqlConnection con;
 
-        public static string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\zkons\Documents\StoreDb.mdf;Integrated Security=True;Connect Timeout=30";
+        public static string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\zkons\Desktop\Shop-Management-System-master\StoreDb.mdf;Integrated Security=True;Connect Timeout=30";
 
         public  SqlConnection connect()
         {
