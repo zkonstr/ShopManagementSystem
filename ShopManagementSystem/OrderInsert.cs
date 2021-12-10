@@ -195,7 +195,7 @@ namespace ShopManagementSystem
                 con = connectObj.connect();
                 SqlCommand cmd = new SqlCommand("Insert into MYORDER (ORD_ID,CID,DATE,AMOUNT) values(@oid,@cid,@date,@amount);", con);
                 cmd.Parameters.AddWithValue("@oid", int.Parse(OrderID.Text));
-                //cmd.Parameters.AddWithValue("@pid", textBox8.Text); 
+                //cmd.Parameters.AddWithValue("@pid", textBox8.Text);) 
                 cmd.Parameters.AddWithValue("@cid", int.Parse(cid));
                 cmd.Parameters.AddWithValue("@date", date.Value.ToString());//TODO: CONVERT mm/dd/yyyy
                 cmd.Parameters.AddWithValue("@amount",decimal.Parse(Total_Amt.Text));
