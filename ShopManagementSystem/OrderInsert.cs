@@ -197,7 +197,7 @@ namespace ShopManagementSystem
                 cmd.Parameters.AddWithValue("@oid", int.Parse(OrderID.Text));
                 //cmd.Parameters.AddWithValue("@pid", textBox8.Text);) 
                 cmd.Parameters.AddWithValue("@cid", int.Parse(cid));
-                cmd.Parameters.AddWithValue("@date", date.Value.ToString());//TODO: CONVERT mm/dd/yyyy
+                cmd.Parameters.AddWithValue("@date", date.Text.ToString());//TODO: CONVERT mm/dd/yyyy
                 cmd.Parameters.AddWithValue("@amount",decimal.Parse(Total_Amt.Text));
 
                 int i = cmd.ExecuteNonQuery();
