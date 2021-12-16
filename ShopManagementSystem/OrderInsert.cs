@@ -195,9 +195,9 @@ namespace ShopManagementSystem
                 con = connectObj.connect();
                 SqlCommand cmd = new SqlCommand("Insert into MYORDER (ORD_ID,CID,DATE,AMOUNT) values(@oid,@cid,@date,@amount);", con);
                 cmd.Parameters.AddWithValue("@oid", int.Parse(OrderID.Text));
-                //cmd.Parameters.AddWithValue("@pid", textBox8.Text);) 
+                ///cmd.Parameters.AddWithValue("@pid", textBox8.Text);) 
                 cmd.Parameters.AddWithValue("@cid", int.Parse(cid));
-                cmd.Parameters.AddWithValue("@date", date.Text.ToString());//TODO: CONVERT mm/dd/yyyy
+                cmd.Parameters.AddWithValue("@date", date.Text.ToString());
                 cmd.Parameters.AddWithValue("@amount",decimal.Parse(Total_Amt.Text));
 
                 int i = cmd.ExecuteNonQuery();
@@ -401,6 +401,25 @@ namespace ShopManagementSystem
             Quantity.Text = "0";
             Amount.Text = "0";
             AddedProducts.DataSource = null;
+        }
+
+        private void OrderID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrderInsert_Shown(object sender, EventArgs e)
+        {
+            Connect connectObj = new Connect();
+            con = connectObj.connect();
+            DataTable dt = new DataTable();
+            String sql = "SELECT * FROM MYORDER WHERE ORD_ID = ( SELECT MAX(ORD_ID) FROM MYORDER);";
+            SqlDataAdapter adpt = new SqlDataAdapter(sql, con);
+            adpt.Fill(dt);
+            string oid = dt.Rows[0]["ORD_ID"].ToString();
+            int ioid;
+            ioid = int.Parse(oid) + 1;
+            OrderID.Text = ioid.ToString();
         }
     }
 }

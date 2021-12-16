@@ -92,5 +92,19 @@ namespace ShopManagementSystem
         {
             this.Close();
         }
+
+        private void ProductInsert_Shown(object sender, EventArgs e)
+        {
+            Connect connectObj = new Connect();
+            con = connectObj.connect();
+            DataTable dt = new DataTable();
+            String sql = "SELECT * FROM PRODUCT WHERE PID = ( SELECT MAX(PID) FROM PRODUCT);";
+            SqlDataAdapter adpt = new SqlDataAdapter(sql, con);
+            adpt.Fill(dt);
+            string pid = dt.Rows[0]["PID"].ToString();
+            int ipid;
+            ipid = int.Parse(pid) + 1;
+            ProductID.Text = ipid.ToString();
+        }
     }
 }

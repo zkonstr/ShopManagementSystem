@@ -70,6 +70,7 @@
             this.ProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductID.Location = new System.Drawing.Point(153, 135);
             this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
             this.ProductID.Size = new System.Drawing.Size(253, 26);
             this.ProductID.TabIndex = 38;
             // 
@@ -189,6 +190,7 @@
             this.Text = "ProductInsert";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Deactivate += new System.EventHandler(this.ProductInsert_Deactivate);
+            this.Shown += new System.EventHandler(this.ProductInsert_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

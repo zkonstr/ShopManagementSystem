@@ -31,7 +31,7 @@ namespace ShopManagementSystem
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            if (CustomerName.Text == "" || phno.Text == "" || CustomerAddress.Text == "" || CustomerEmail.Text == "" || customerId.Text == "")
+            if (CustomerName.Text == "" || phno.Text == "" || CustomerAddress.Text == "" || CustomerEmail.Text == "")// ||customerId.Text == ""
             {
                 MessageBox.Show("Please provide all the details", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -42,19 +42,22 @@ namespace ShopManagementSystem
                 MessageBox.Show("Enter valid Phone number", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
 
+            
             try
             {
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
+                
 
                 SqlCommand cmd = new SqlCommand("customer_in", con);
-                
-                
+                /////
                 //To execute a stored procedure
 
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cid", customerId.Text);
+                cmd.CommandType = CommandType.StoredProcedure;//TODO
+
+                //cmd.Parameters.AddWithValue("@cid", customerId.Text);
                 cmd.Parameters.AddWithValue("@cname", CustomerName.Text);
                 cmd.Parameters.AddWithValue("@phone_number", Convert.ToInt64(phno.Text));
                 cmd.Parameters.AddWithValue("@address", CustomerAddress.Text);
@@ -114,6 +117,25 @@ namespace ShopManagementSystem
         private void CustomerInsert_Deactivate(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void customerId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomerInsert_Shown(object sender, EventArgs e)
+        {
+            Connect connectObj = new Connect();
+                con = connectObj.connect();
+                DataTable dt = new DataTable();
+            String sql = "SELECT * FROM CUSTOMER WHERE C_ID = ( SELECT MAX(C_ID) FROM CUSTOMER);";
+            SqlDataAdapter adpt = new SqlDataAdapter(sql, con);
+            adpt.Fill(dt);
+            string cid = dt.Rows[0]["C_ID"].ToString();
+            int icid;
+            icid = int.Parse(cid)+1;
+            customerId.Text = icid.ToString() ;
         }
     }
 }

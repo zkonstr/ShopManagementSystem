@@ -34,10 +34,10 @@ namespace ShopManagementSystem
             {
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
-                var select = "SELECT * FROM ORDER_VIEW WHERE DATE BETWEEN @start AND @end ;";           
-                var dataAdapter = new SqlDataAdapter(select, con);
-                dataAdapter.SelectCommand.Parameters.AddWithValue("@start", FromDate.Text);
-                dataAdapter.SelectCommand.Parameters.AddWithValue("@end", Todate.Text);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM ORDER_VIEW WHERE DATE BETWEEN @start AND @end",con);
+                cmd.Parameters.AddWithValue("@start", FromDate.Text);
+                cmd.Parameters.AddWithValue("@end", Todate.Text);
+                var dataAdapter = new SqlDataAdapter(cmd);
                 //MessageBox.Show(dateTimePicker1.Value.Date.ToString("mm/dd/yyyy"));
                 var commandBuilder = new SqlCommandBuilder(dataAdapter);
                 var ds = new DataSet();

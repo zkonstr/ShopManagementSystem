@@ -28,7 +28,7 @@ namespace ShopManagementSystem
 
         private void submit_Click(object sender, EventArgs e)
         {
-            if (VendorName.Text == "" || VendorAddress.Text == "" || PhoneNO.Text == "" || Email.Text == "" || VendorID.Text == "")
+            if (VendorName.Text == "" || VendorAddress.Text == "" || PhoneNO.Text == "" || Email.Text == "" )//|| VendorID.Text == "")
             {
                 MessageBox.Show("Please provide all the details", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -44,9 +44,9 @@ namespace ShopManagementSystem
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
 
-                SqlCommand cmd = new SqlCommand("Insert into VENDOR (vid,vname,address,phone_number,email) values(@id,@vname,@address,@phno,@email);", con);
+                SqlCommand cmd = new SqlCommand("Insert into VENDOR (vname,address,phone_number,email) values(@vname,@address,@phno,@email);", con);
                 
-                cmd.Parameters.AddWithValue("@id", VendorID.Text);
+                //cmd.Parameters.AddWithValue("@id", VendorID.Text);
                 cmd.Parameters.AddWithValue("@vname", VendorName.Text);
                 cmd.Parameters.AddWithValue("@phno", Convert.ToInt64(PhoneNO.Text));
                 cmd.Parameters.AddWithValue("@address", VendorAddress.Text);
@@ -97,6 +97,20 @@ namespace ShopManagementSystem
         private void VendorInsert_Deactivate(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VendorInsert_Shown(object sender, EventArgs e)
+        {
+            Connect connectObj = new Connect();
+            con = connectObj.connect();
+            DataTable dt = new DataTable();
+            String sql = "SELECT * FROM VENDOR WHERE VID = ( SELECT MAX(VID) FROM VENDOR);";
+            SqlDataAdapter adpt = new SqlDataAdapter(sql, con);
+            adpt.Fill(dt);
+            string vid = dt.Rows[0]["VID"].ToString();
+            int ivid;
+            ivid = int.Parse(vid) + 1;
+            VendorID.Text = ivid.ToString();
         }
     }
 }

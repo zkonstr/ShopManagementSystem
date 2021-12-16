@@ -362,8 +362,10 @@
             // 
             this.OrderID.Location = new System.Drawing.Point(281, 70);
             this.OrderID.Name = "OrderID";
+            this.OrderID.ReadOnly = true;
             this.OrderID.Size = new System.Drawing.Size(192, 22);
             this.OrderID.TabIndex = 37;
+            this.OrderID.TextChanged += new System.EventHandler(this.OrderID_TextChanged);
             // 
             // Product_search
             // 
@@ -623,6 +625,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Deactivate += new System.EventHandler(this.OrderInsert_Deactivate);
             this.Load += new System.EventHandler(this.OrderInsert_Load);
+            this.Shown += new System.EventHandler(this.OrderInsert_Shown);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddedProducts)).EndInit();

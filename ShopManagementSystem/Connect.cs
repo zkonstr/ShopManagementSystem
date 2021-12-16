@@ -37,10 +37,5 @@ namespace ShopManagementSystem
                 con.Close();
             }
         }
-
-        /*internal void Connect()
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }
