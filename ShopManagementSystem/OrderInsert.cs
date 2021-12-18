@@ -329,6 +329,7 @@ namespace ShopManagementSystem
             }
             if (Discount.Text == "")
             {
+
                 MessageBox.Show("Add value of Discount first", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

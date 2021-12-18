@@ -56,9 +56,11 @@ namespace ShopManagementSystem
 
                 if (count == 1)
                 {
+
                     MessageBox.Show("Login Successful!", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     FormMenu menu = new FormMenu();
+                    menu.CheckRole(username);
                     this.Hide();
                     menu.Show();
                     

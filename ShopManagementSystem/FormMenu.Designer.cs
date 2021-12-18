@@ -86,21 +86,21 @@
             // vIEWToolStripMenuItem2
             // 
             this.vIEWToolStripMenuItem2.Name = "vIEWToolStripMenuItem2";
-            this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(143, 26);
+            this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.vIEWToolStripMenuItem2.Text = "VIEW";
             this.vIEWToolStripMenuItem2.Click += new System.EventHandler(this.vIEWToolStripMenuItem2_Click);
             // 
             // cREATEToolStripMenuItem
             // 
             this.cREATEToolStripMenuItem.Name = "cREATEToolStripMenuItem";
-            this.cREATEToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.cREATEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cREATEToolStripMenuItem.Text = "CREATE";
             this.cREATEToolStripMenuItem.Click += new System.EventHandler(this.cREATEToolStripMenuItem_Click);
             // 
             // dELETEToolStripMenuItem
             // 
             this.dELETEToolStripMenuItem.Name = "dELETEToolStripMenuItem";
-            this.dELETEToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.dELETEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.dELETEToolStripMenuItem.Text = "DELETE";
             this.dELETEToolStripMenuItem.Click += new System.EventHandler(this.dELETEToolStripMenuItem_Click);
             // 
@@ -216,32 +216,33 @@
             this.cUSTOMERSToolStripMenuItem.Name = "cUSTOMERSToolStripMenuItem";
             this.cUSTOMERSToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.cUSTOMERSToolStripMenuItem.Text = "CUSTOMERS";
+            this.cUSTOMERSToolStripMenuItem.Click += new System.EventHandler(this.cUSTOMERSToolStripMenuItem_Click);
             // 
             // iNSERTToolStripMenuItem
             // 
             this.iNSERTToolStripMenuItem.Name = "iNSERTToolStripMenuItem";
-            this.iNSERTToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iNSERTToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.iNSERTToolStripMenuItem.Text = "INSERT";
             this.iNSERTToolStripMenuItem.Click += new System.EventHandler(this.iNSERTToolStripMenuItem_Click);
             // 
             // vIEWToolStripMenuItem
             // 
             this.vIEWToolStripMenuItem.Name = "vIEWToolStripMenuItem";
-            this.vIEWToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vIEWToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.vIEWToolStripMenuItem.Text = "VIEW";
             this.vIEWToolStripMenuItem.Click += new System.EventHandler(this.vIEWToolStripMenuItem_Click);
             // 
             // uPDATEToolStripMenuItem
             // 
             this.uPDATEToolStripMenuItem.Name = "uPDATEToolStripMenuItem";
-            this.uPDATEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uPDATEToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.uPDATEToolStripMenuItem.Text = "UPDATE";
             this.uPDATEToolStripMenuItem.Click += new System.EventHandler(this.uPDATEToolStripMenuItem_Click);
             // 
             // dELETEToolStripMenuItem2
             // 
             this.dELETEToolStripMenuItem2.Name = "dELETEToolStripMenuItem2";
-            this.dELETEToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.dELETEToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
             this.dELETEToolStripMenuItem2.Text = "DELETE";
             this.dELETEToolStripMenuItem2.Click += new System.EventHandler(this.dELETEToolStripMenuItem2_Click);
             // 
@@ -255,6 +256,7 @@
             this.pRODUCTSToolStripMenuItem.Name = "pRODUCTSToolStripMenuItem";
             this.pRODUCTSToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.pRODUCTSToolStripMenuItem.Text = "PRODUCTS";
+            this.pRODUCTSToolStripMenuItem.Click += new System.EventHandler(this.pRODUCTSToolStripMenuItem_Click);
             // 
             // iNSERTToolStripMenuItem1
             // 
@@ -402,6 +404,7 @@
             this.Text = "FormMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMenu_FormClosed);
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.MdiChildActivate += new System.EventHandler(this.FormMenu_MdiChildActivate);
             this.menuStrip.ResumeLayout(false);

@@ -20,6 +20,34 @@ namespace ShopManagementSystem
             InitializeComponent();
         }
 
+        public void CheckRole(string role)
+        {
+            string[] keys = new string[] { "customer", "admin", "vendor" };
+
+            string sKeyResult = keys.FirstOrDefault<string>(s => role.Contains(s));
+
+            switch (sKeyResult)
+            {
+                case "customer":
+                    cUSTOMERSToolStripMenuItem.Visible = false;
+                    pRODUCTSToolStripMenuItem.Visible = false;
+                    vENDORSToolStripMenuItem.Visible = false;
+                    sTOCKSToolStripMenuItem.Visible = false;
+                    dELETEToolStripMenuItem.Visible = false;
+                    rEPORTToolStripMenuItem.DropDownItems[3].Visible = false;
+
+                    break;
+                case "vendor":
+                    cUSTOMERSToolStripMenuItem.Visible = false;
+                    pRODUCTSToolStripMenuItem.Visible = false;
+                    vENDORSToolStripMenuItem.Visible = false;
+                    break;
+                default:break;
+
+            }
+
+        }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
             Form childForm = new Form();
@@ -256,6 +284,25 @@ namespace ShopManagementSystem
             Details details = new Details();
             details.MdiParent = this;
             details.Show();
+        }
+
+        private void cUSTOMERSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pRODUCTSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rEQUESTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

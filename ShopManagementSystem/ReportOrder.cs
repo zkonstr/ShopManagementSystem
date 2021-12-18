@@ -35,12 +35,13 @@ namespace ShopManagementSystem
                 Connect connectObj = new Connect();
                 con = connectObj.connect();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM ORDER_VIEW WHERE DATE BETWEEN @start AND @end",con);
-                cmd.Parameters.AddWithValue("@start", FromDate.Text);
-                cmd.Parameters.AddWithValue("@end", Todate.Text);
+                cmd.Parameters.AddWithValue("@start", FromDate.Value.Date);
+                cmd.Parameters.AddWithValue("@end", Todate.Value.Date);
                 var dataAdapter = new SqlDataAdapter(cmd);
                 //MessageBox.Show(dateTimePicker1.Value.Date.ToString("mm/dd/yyyy"));
                 var commandBuilder = new SqlCommandBuilder(dataAdapter);
                 var ds = new DataSet();
+                //TODO fix convertation
                 dataAdapter.Fill(ds);
                 dataGridView1.ReadOnly = true;
                 dataGridView1.DataSource = ds.Tables[0];

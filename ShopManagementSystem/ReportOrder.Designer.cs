@@ -138,7 +138,7 @@
             this.FromDate.Name = "FromDate";
             this.FromDate.Size = new System.Drawing.Size(200, 22);
             this.FromDate.TabIndex = 27;
-            this.FromDate.Value = new System.DateTime(2021, 12, 9, 0, 0, 0, 0);
+            this.FromDate.Value = new System.DateTime(2021, 9, 9, 0, 0, 0, 0);
             // 
             // label2
             // 
